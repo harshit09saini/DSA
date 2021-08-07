@@ -4,18 +4,22 @@
 using namespace std;
 
 void two_pointer_approach(int arr[], int size);
+void partition(int arr[], int size);
 
 int main()
 {
     int arr[] = {-1, 1, 5, 123, -5, 124, 1, 1, -1, -19, 19};
     int size = sizeof(arr) / sizeof(arr[0]);
 
-    two_pointer_approach(arr, size);
+    // two_pointer_approach(arr, size);
+
+    partition(arr, size);
 
     for (int i = 0; i < size; i++)
     {
         cout << arr[i] << " ";
     }
+    return 0;
 }
 
 // Two pointer approach
@@ -47,6 +51,22 @@ void two_pointer_approach(int arr[], int size)
     }
 }
 
-// Partitioning 
+// Partitioning
 
-int partition()
+void partition(int arr[], int size)
+{
+    int start = 0;
+    int end = size - 1;
+    int j = start;
+    for (int i = 0; i < size; i++)
+    {
+        if (arr[i] < 0)
+        {
+            if (i != j)
+            {
+                swap(arr[i], arr[j]);
+            }
+            j++;
+        }
+    }
+}

@@ -10,6 +10,8 @@ public:
     //Function to return the count of number of elements in union of two arrays.
     int doUnion(int a[], int n, int b[], int m)
     {
+        sort(a, a + n);
+        sort(b, b + m);
         vector<int> v;
 
         int i = 0, j = 0;

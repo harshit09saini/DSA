@@ -11,6 +11,9 @@ using namespace std;
 class Solution
 {
 public:
+    // This approach is wrong because sorting modifies the array, which does not meet the constraints of the problem.
+    // Sorting takes nlogn time complexity
+    // Scanning -> O(n)
     int findDuplicate(vector<int> &nums)
     {
         int size = nums.size();
@@ -29,6 +32,9 @@ public:
         }
         return -1;
     }
+
+    // Optimized Approach
+    // Approach 7: Floyd's Tortoise and Hare (Cycle Detection)
 };
 
 // { Driver Code Starts.

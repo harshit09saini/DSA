@@ -35,6 +35,26 @@ public:
 
     // Optimized Approach
     // Approach 7: Floyd's Tortoise and Hare (Cycle Detection)
+
+    int findDuplicateOptimized(vector<int> &nums)
+    {
+        int fast = nums[0], slow = nums[0];
+
+        do
+        {
+            slow = nums[slow];
+            fast = nums[nums[fast]];
+        } while (fast != slow);
+
+        fast = nums[0];
+
+        while (fast != slow)
+        {
+            slow = nums[slow];
+            fast = nums[fast];
+        }
+        return slow;
+    }
 };
 
 // { Driver Code Starts.
@@ -57,6 +77,7 @@ int main()
 
         Solution obj;
         cout << obj.findDuplicate(nums) << endl;
+        cout << obj.findDuplicateOptimized(nums) << endl;
     }
     return 0;
 }
